@@ -1,5 +1,5 @@
 
-![](https://github.com/AnalogJ/banditio.docs/blob/master/bandito structure.png)
+![](https://raw.githubusercontent.com/AnalogJ/banditio.docs/master/banditio%20structure.png)
 
 # Components
 - Frontend: Chrome Devtools (+ Websocket client)
