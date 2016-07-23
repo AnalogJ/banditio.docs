@@ -29,6 +29,15 @@ This iframe url is modified once a proxy container is started, and points to the
 # Engine
 The engine is made up of 3 different applications, a websocket server, a webserver, and a nginx server. 
 
+## Start
+	
+	./hyper run -d --name "engine" analogj/banditio.engine
+	./hyper fip associate 162.221.195.32 engine
+	./hyper exec -it engine /bin/sh
+
+	# restart service:
+	s6-svc -h /var/run/s6/services/nginx
+	
 ## Testing
 
 - The websocket server can be tested by visiting http://www.websocket.org/echo.html and entering a url of ws://websocket.bandit.io:9000/ws/**{containerid}**
@@ -37,6 +46,12 @@ The engine is made up of 3 different applications, a websocket server, a webserv
 
 # MITM Proxy Containers
 The MITM Proxy containers are spun up on demand, and listen for HTTP_PROXY requests from NGINX. 
+
+## Start
+	
+	./hyper run -d analogj/banditio.proxy.v4
+	./hyper exec -it {containerid} /bin/sh
+	
 
 ## Testing
 The MITM Proxy containers are not publically accessible. They can only be accessed via the Engine server. 
