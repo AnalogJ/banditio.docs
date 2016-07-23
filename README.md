@@ -35,8 +35,11 @@ The engine is made up of 3 different applications, a websocket server, a webserv
 	./hyper fip associate 162.221.195.32 engine
 	./hyper exec -it engine /bin/sh
 
-	# restart service:
+	# reload service:
 	s6-svc -h /var/run/s6/services/nginx
+	
+	# restart service:
+	s6-svc -t /var/run/s6/services/nginx
 	
 ## Testing
 
